@@ -17,6 +17,7 @@ import FaisalLogo from '$lib/images/Faisal Ramadhan.png';
 import FaisalLogoDark from '$lib/images/Faisal Ramadhan-dark.png';
 import DefaultBgImage from '$lib/images/Test_BG-2.jpg';
 import DarkThemeBgImage from '$lib/images/night-sky.jpg';
+import PeruriLogo from '$lib/images/LOGO_PERURI_BARU.png';
 
 export {
 	smoothScrollAnimation,
@@ -34,5 +35,6 @@ export {
 	FaisalLogo,
 	FaisalLogoDark,
 	DefaultBgImage,
-	DarkThemeBgImage
+	DarkThemeBgImage,
+	PeruriLogo
 };

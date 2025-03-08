@@ -52,9 +52,7 @@ export function smoothScrollAnimation() {
 			const targetEle = document.querySelector(href);
 
 			if (targetEle) {
-				targetEle.scrollIntoView({
-					behavior: 'smooth'
-				});
+				targetEle.scrollIntoView({ behavior: 'smooth' });
 			}
 		}
 	}

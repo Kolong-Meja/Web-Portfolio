@@ -1,16 +1,45 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {
-		changeTheme,
-		navbarScrollAnimation,
-		smoothScrollAnimation
-	} from '$lib/services/animation';
+	import { navbarScrollAnimation, smoothScrollAnimation } from '$lib/services/animation';
+	import { FaisalLogoDark, FaisalLogo, DarkThemeBgImage, DefaultBgImage } from '$lib';
 
-	export let fontFamily: 'font-bodoni' | 'font-lato' | 'font-grotesk' = 'font-grotesk';
-	export let fontSize: 'sm' | 'base' | 'lg' | 'xl' = 'sm';
+	let isDarkMode: boolean = false;
+	let isHidden: boolean = true;
 
-	let navClass: string = `my-navbar hidden z-10 w-full bg-gray-50 ${fontFamily}`;
-	let navLinkTextClass: string = `nav-text text-${fontSize} text-gray-950`;
+	function handleChange({ matches: dark }: MediaQueryListEvent) {
+		if (!localStorage.theme) {
+			setMode(dark);
+		}
+	}
+
+	function setMode(value: boolean) {
+		const header = document.getElementById('main-header');
+		const logo = document.getElementById('logo');
+
+		isDarkMode = value;
+
+		let themeCondition = !isDarkMode
+			? document.documentElement.classList.remove('dark')
+			: document.documentElement.classList.add('dark');
+
+		localStorage.theme = !isDarkMode ? 'light' : 'dark';
+
+		if (header && logo) {
+			const currentBgImage = header.style.backgroundImage;
+
+			if (!isDarkMode && !currentBgImage.includes(DefaultBgImage)) {
+				header.style.backgroundImage = `url(${DefaultBgImage})`;
+				logo.setAttribute('src', FaisalLogo);
+			} else {
+				header.style.backgroundImage = `url(${DarkThemeBgImage})`;
+				logo.setAttribute('src', FaisalLogoDark);
+			}
+		}
+	}
+
+	function toggleTheme() {
+		setMode(!isDarkMode);
+	}
 
 	function toggleMenu() {
 		const menu = document.getElementById('mobile-menu');
@@ -20,62 +49,130 @@
 	onMount(() => {
 		const navbar = document.querySelector('.my-navbar');
 
-		navbarScrollAnimation(navbar as Element);
+		if (navbar) {
+			navbarScrollAnimation(navbar);
+		}
 		smoothScrollAnimation();
+
+		isHidden = false;
+
+		const storedTheme = localStorage.theme;
+		if (storedTheme) {
+			setMode(storedTheme === 'dark');
+		} else {
+			const matcher = window.matchMedia('(prefers-color-scheme: dark)');
+			setMode(matcher.matches);
+			matcher.addEventListener('change', handleChange);
+
+			return () => matcher.removeEventListener('change', handleChange);
+		}
 	});
 </script>
 
-<nav class={navClass}>
-	<div class="container mx-auto flex justify-between items-center p-4 md:p-5">
-		<button
-			on:click={changeTheme}
-			id="switch-theme-btn"
-			class="bg-blue-100/50 p-2 rounded-full lg:rounded-xl"
-		>
-			<svg
-				id="sun-icon"
-				xmlns="http://www.w3.org/2000/svg"
-				fill="currentColor"
-				class="bi bi-sun-fill w-5 h-5"
-				viewBox="0 0 16 16"
+<svelte:head>
+	<script>
+		if (
+			localStorage.theme === 'dark' ||
+			(!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	</script>
+</svelte:head>
+
+<nav class="my-navbar hidden z-10 w-full font-grotesk bg-light dark:bg-dark">
+	<div class="container mx-auto flex justify-between items-center p-2 md:p-2.5">
+		<div class="flex flex-row items-center gap-4">
+			<!-- Left Section -->
+
+			<!-- Theme Switch Button -->
+			<button
+				class="{isDarkMode
+					? 'bg-gray-600 focus:ring-gray-400 ring-offset-gray-700'
+					: 'bg-yellow-100 focus:ring-yellow-400 ring-offset-white'} relative inline-flex flex-shrink-0 h-8 w-16 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 m-4"
+				class:isHidden
+				type="button"
+				on:click={toggleTheme}
 			>
-				<path
-					d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"
-				/>
-			</svg>
-			<svg
-				id="moon-icon"
-				xmlns="http://www.w3.org/2000/svg"
-				fill="currentColor"
-				class="bi bi-moon-stars-fill hidden w-5 h-5 text-gray-50"
-				viewBox="0 0 16 16"
+				<span class="sr-only">Toggle Dark Mode</span>
+				<span
+					class="{isDarkMode
+						? 'translate-x-0 bg-gray-300'
+						: 'translate-x-8 bg-white'} pointer-events-none relative inline-block h-7 w-7 rounded-full shadow transform ring-0 transition ease-in-out duration-200"
+				>
+					<span
+						class="{isDarkMode
+							? 'opacity-0 ease-out duration-100'
+							: 'opacity-100 ease-in duration-200'} absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
+						aria-hidden="true"
+					>
+						<!-- sun icon -->
+						<svg class="h-6 w-6 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+							<path
+								fill-rule="evenodd"
+								d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+								clip-rule="evenodd"
+							/>
+						</svg>
+					</span>
+
+					<span
+						class="{isDarkMode
+							? 'opacity-100 ease-in duration-200'
+							: 'opacity-0 ease-out duration-100'} absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
+						aria-hidden="true"
+					>
+						<!-- moon icon -->
+						<svg class="h-3 w-3 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+							<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+						</svg>
+					</span>
+				</span>
+			</button>
+
+			<!-- Change Language Options -->
+			<select
+				id="countries"
+				class="w-36 sm:w-40 md:w-44 lg:w-48 bg-gray-50 border border-gray-300 text-gray-950 dark:text-white dark:bg-[#1c1d1c] dark:border-gray-800 text-sm rounded-lg focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 dark:focus:ring-violet-300 dark:focus:border-violet-300 focus:border-2 p-2.5 dark:bg-"
 			>
-				<path
-					d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"
-				/>
-				<path
-					d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"
-				/>
-			</svg>
-		</button>
-		<ul class="hidden md:flex flex-row items-center space-x-6">
+				<option value="id">Indonesia</option>
+				<option value="en">English (United States)</option>
+			</select>
+
+			<!-- End of Left Section -->
+		</div>
+
+		<!-- Right Section -->
+		<ul class="hidden lg:flex flex-row items-center space-x-6">
 			<li class="list-none">
 				<a href={'#personal-info'} class="link">
-					<span class={navLinkTextClass}>Personal Info</span>
+					<span class="nav-text text-base text-gray-950 dark:text-white">Personal Info</span>
 				</a>
 			</li>
 			<li class="list-none">
 				<a href={'#expertise'} class="link">
-					<span class={navLinkTextClass}>Strength & Expertise</span>
+					<span class="nav-text text-base text-gray-950 dark:text-white">Strength & Expertise</span>
 				</a>
 			</li>
 			<li class="list-none">
 				<a href={'#experience'} class="link">
-					<span class={navLinkTextClass}>Professional Experience</span>
+					<span class="nav-text text-base text-gray-950 dark:text-white"
+						>Professional Experience</span
+					>
+				</a>
+			</li>
+			<li class="list-none">
+				<a href={'#experience'} class="link">
+					<span class="nav-text text-base text-gray-950 dark:text-white">Projects</span>
 				</a>
 			</li>
 		</ul>
-		<button id="menu-bar" class="text-gray-950 md:hidden lg:hidden" on:click={toggleMenu}>
+		<!-- End of Right Section -->
+
+		<!-- Mobile Version -->
+		<button id="menu-bar" class="text-gray-950 dark:text-white lg:hidden" on:click={toggleMenu}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				class="h-6 w-6"
@@ -92,27 +189,29 @@
 			</svg>
 		</button>
 	</div>
-	<!-- Mobile Menu -->
+
 	<div
 		id="mobile-menu"
-		class="hidden bg-gray-50 border-t border-t-gray-100 md:border-t-0 lg:border-t-0 md:hidden lg:hidden"
+		class="hidden bg-gray-50 border-t border-t-gray-100 md:border-t-0 lg:border-t-0"
 	>
 		<ul class="flex flex-col items-center space-y-4 p-4">
 			<li class="list-none">
 				<a href={'#personal-info'} class="link">
-					<span class={navLinkTextClass}>Personal Info</span>
+					<span class="nav-text text-sm text-gray-950 dark:text-white">Personal Info</span>
 				</a>
 			</li>
 			<li class="list-none">
 				<a href={'#expertise'} class="link">
-					<span class={navLinkTextClass}>Strength & Expertise</span>
+					<span class="nav-text text-sm text-gray-950 dark:text-white">Strength & Expertise</span>
 				</a>
 			</li>
 			<li class="list-none">
 				<a href={'#experience'} class="link">
-					<span class={navLinkTextClass}>Professional Experience</span>
+					<span class="nav-text text-sm text-gray-950 dark:text-white">Professional Experience</span
+					>
 				</a>
 			</li>
 		</ul>
 	</div>
+	<!-- End of Mobile Version -->
 </nav>

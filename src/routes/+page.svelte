@@ -12,18 +12,28 @@
 		SvelteLogo,
 		CitiasiaLogo,
 		MTGLogo,
+		PeruriLogo,
 		FaisalLogo,
-		DefaultBgImage
-	} from '$lib/index';
+		DefaultBgImage,
+		DarkThemeBgImage,
+		FaisalLogoDark
+	} from '$lib';
 
 	// additional dependencies
 	import anime from 'animejs/lib/anime.min';
 
 	onMount(() => {
 		const header = document.getElementById('main-header');
+		const logo = document.getElementById('logo') as HTMLImageElement;
 
-		if (header) {
-			header.style.backgroundImage = `url(${DefaultBgImage})`;
+		if (header && logo) {
+			if (localStorage.theme !== 'dark') {
+				header.style.backgroundImage = `url(${DefaultBgImage})`;
+				logo.src = FaisalLogo;
+			} else {
+				header.style.backgroundImage = `url(${DarkThemeBgImage})`;
+				logo.src = FaisalLogoDark;
+			}
 		}
 
 		let vueIconAnimation = anime({
@@ -224,6 +234,7 @@
 	});
 </script>
 
+<!-- Header -->
 <header
 	id="main-header"
 	class="bg-auto bg-fixed bg-center font-grotesk max-h-screen max-w-full md:bg-cover"
@@ -241,9 +252,10 @@
 	</div>
 </header>
 
+<!-- Body Section -->
 <section
 	id="personal-info"
-	class="bg-gray-50 font-grotesk min-h-screen max-w-full border-0 md:border-b border-gray-100"
+	class="bg-light dark:bg-dark font-grotesk min-h-screen max-w-full border-0 md:border-b border-gray-100 dark:border-gray-800"
 >
 	<div class="container mx-auto">
 		<div
@@ -251,17 +263,17 @@
 		>
 			<div
 				id="personal-info-inner-box"
-				class="flex flex-col justify-center items-center space-y-6 p-6 bg-gray-50 rounded-lg sm:p-7 md:p-8 lg:p-10"
+				class="flex flex-col justify-center items-center space-y-6 p-6 bg-light dark:bg-dark rounded-lg sm:p-7 md:p-8 lg:p-10"
 			>
 				<h1
 					id="my-name"
-					class="text-slide title text-3xl text-wrap font-bold tracking-normal text-gray-950 self-start sm:text-4xl md:text-6xl lg:text-8xl"
+					class="text-slide title text-3xl text-wrap font-bold tracking-normal text-gray-950 dark:text-white self-start sm:text-4xl md:text-6xl lg:text-8xl"
 				>
 					Faisal Ramadhan
 				</h1>
 				<p
 					id="my-profile-desc"
-					class="text-slide description text-base font-normal leading-relaxed text-gray-950 self-start sm:text-base md:text-lg lg:text-xl"
+					class="text-slide description text-base font-normal leading-relaxed text-gray-950 dark:text-white self-start md:text-lg lg:text-xl"
 				>
 					I am an Entry Level <a
 						id="first-popover"
@@ -269,60 +281,58 @@
 						class="underline underline-offset-2 font-semibold"
 					>
 						Full Stack Developer</a
-					> with a strong focus on achieving results, have leading expertise in analyzing, designing
-					and developing applications and websites and mastering REST API systems. I have demonstrated
-					extraordinary programming skills when participating in an internship program at one of the
-					well- known companies in the East Jakarta area. I have a proven track record in goods distribution
-					application development, optimizing REST API performance, and database management.
+					> who has a strong focus on achieving results, has leading expertise in analyzing, designing,
+					and developing applications and websites, and mastering the RESTful API system. I have demonstrated
+					excellent programming skills with more than 1.5 years of experience and have 3 (three) official
+					internship certificates. In addition to excellent programming skills, I also master several
+					programming languages, frameworks, and tools. If you are curious about my portfolio, please
+					visit the link below and explore my personal portfolio site, best regards to you 🤝
 				</p>
 			</div>
-			<div
-				class="flex flex-row flex-wrap gap-3 justify-start items-center w-full"
-			>
+			<div class="flex flex-row flex-wrap gap-3 justify-start items-center w-full">
 				<p
-					class="personal-link bg-gray-200 text-base font-normal py-2.5 px-6 rounded-full sm:text-base md:text-lg"
+					class="personal-link bg-gray-200 dark:bg-[#433D8B] text-base font-normal py-2.5 px-6 rounded-full md:text-lg"
 				>
 					<a
 						id="file-link"
-						href="https://drive.google.com/file/d/1uO31SH5sbTrX3S4qfUruMWbVKIq4cMzV/view?usp=sharing"
-						class="text-gray-900"
-						>Resume</a
+						href="https://drive.google.com/file/d/1qQqfDh_M72bRTpJq-ebwea8UPsJQXMul/view?usp=sharing"
+						class="text-gray-950 dark:text-white">Resume</a
 					>
 				</p>
 				<p
-					class="personal-link bg-gray-200 text-base font-normal py-2.5 px-6 rounded-full sm:text-base md:text-lg"
+					class="personal-link bg-gray-200 dark:bg-[#433D8B] text-base font-normal py-2.5 px-6 rounded-full md:text-lg"
 				>
 					<a
 						id="file-link"
-						href="https://drive.google.com/file/d/11TWun9yadb0_arylVdxmTbR6bnPLarW3/view?usp=sharing"
-						class="text-gray-900"
-						>Certificates</a
+						href="https://drive.google.com/file/d/1CWNnv7h82f26WPMn-1P-MyjQc07ZHTQf/view?usp=sharing"
+						class="text-gray-950 dark:text-white">Certificates</a
 					>
 				</p>
 				<p
-					class="personal-link bg-gray-200 text-base font-normal py-2.5 px-6 rounded-full sm:text-base md:text-lg"
+					class="personal-link bg-gray-200 dark:bg-[#433D8B] text-base font-normal py-2.5 px-6 rounded-full md:text-lg"
 				>
 					<a
 						id="file-link"
 						href="https://drive.google.com/file/d/1vGfj48SlxYBn0VcUMZChJlaous61SVDd/view?usp=sharing"
-						class="text-gray-900"
-						>Other portfolio</a
+						class="text-gray-950 dark:text-white">Other portfolio</a
 					>
 				</p>
 			</div>
 			<Popover
 				triggeredBy="#first-popover"
-				class="w-72 text-sm font-normal text-gray-950 bg-gray-50 border-none shadow-lg shadow-gray-400/50 lg:w-96 lg:text-md"
+				class="w-72 text-sm font-normal bg-light dark:bg-[#1c1d1c] border-none shadow-lg shadow-gray-400/50 dark:shadow-none lg:w-96 lg:text-base"
 				placement="bottom-start"
 				transition={fade}
 			>
 				<div class="p-3 space-y-2">
-					<h3 class="font-bold text-gray-950">Fullstack Developer</h3>
-					A full-stack developer is a developer or engineer who can build both the front end and the
-					back end of a website. The front end (the parts of a website a user sees and interacts with)
-					and the back end (the behind-the-scenes data storage and processing) require different skill
-					sets. Since full-stack developers are involved with all aspects of the development process,
-					they must have expertise in both.
+					<h3 class="font-bold text-gray-950 dark:text-white">Fullstack Developer</h3>
+					<p class="font-normal text-gray-700 dark:text-gray-300">
+						A full stack developer is a developer or technician who can build both the front and
+						back end of a website. The front end (the part of the website that users see and use)
+						and the back end (the behind-the-scenes storage and processing of data) require
+						different skill sets. Because full stack developers are involved in all aspects of the
+						development process, they must have expertise in both.
+					</p>
 				</div>
 			</Popover>
 		</div>
@@ -331,14 +341,14 @@
 
 <section
 	id="expertise"
-	class="bg-gray-50 font-grotesk min-h-screen max-w-full border-0 md:border-b border-gray-100"
+	class="bg-light dark:bg-dark font-grotesk max-w-full border-0 md:border-b border-gray-100 dark:border-gray-800"
 >
 	<div class="container mx-auto">
-		<div class="py-8 px-4 sm:py-16 sm:px-8 md:py-32 md:px-16 lg:py-48 lg:px-32">
-			<div class="flex flex-col space-y-8">
+		<div class="py-8 px-4 sm:py-16 sm:px-8 md:py-32 md:px-16">
+			<div class="flex flex-col space-y-4">
 				<p
 					id="experise-head-text"
-					class="text-2xl text-gray-950 text-center font-bold sm:text-2xl md:text-3xl lg:text-4xl"
+					class="mb-8 text-2xl text-gray-950 dark:text-white text-center font-bold md:text-3xl lg:text-4xl"
 				>
 					Strength and Expertise
 				</p>
@@ -361,7 +371,7 @@
 						</svg>
 						<p
 							id="icon-text"
-							class="text-md text-gray-950 font-normal text-center text-wrap lg:text-lg"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
 						>
 							Vue.js
 						</p>
@@ -384,7 +394,10 @@
 								d="M41.706,14.715c-0.842,1.064-2.034,1.836-3.405,2.139C39.379,19.007,40,21.429,40,24	c0,8.837-7.163,16-16,16S8,32.837,8,24S15.163,8,24,8c2.571,0,4.993,0.621,7.145,1.699c0.303-1.371,1.075-2.564,2.139-3.405	C30.509,4.835,27.354,4,24,4C12.954,4,4,12.954,4,24c0,11.046,8.954,20,20,20s20-8.954,20-20C44,20.646,43.165,17.491,41.706,14.715	z"
 							></path>
 						</svg>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							Ionic
 						</p>
 					</div>
@@ -401,7 +414,10 @@
 								d="M29.538,32.947c0.692,1.124,1.444,2.201,3.037,2.201c1.338,0,2.04-0.665,2.04-1.585 c0-1.101-0.726-1.492-2.198-2.133l-0.807-0.344c-2.329-0.988-3.878-2.226-3.878-4.841c0-2.41,1.845-4.244,4.728-4.244 c2.053,0,3.528,0.711,4.592,2.573l-2.514,1.607c-0.553-0.988-1.151-1.377-2.078-1.377c-0.946,0-1.545,0.597-1.545,1.377 c0,0.964,0.6,1.354,1.985,1.951l0.807,0.344C36.452,29.645,38,30.839,38,33.523C38,36.415,35.716,38,32.65,38 c-2.999,0-4.702-1.505-5.65-3.368L29.538,32.947z M17.952,33.029c0.506,0.906,1.275,1.603,2.381,1.603 c1.058,0,1.667-0.418,1.667-2.043V22h3.333v11.101c0,3.367-1.953,4.899-4.805,4.899c-2.577,0-4.437-1.746-5.195-3.368 L17.952,33.029z"
 							></path>
 						</svg>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							Javascript
 						</p>
 					</div>
@@ -438,7 +454,10 @@
 								></path></g
 							>
 						</svg>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							Java
 						</p>
 					</div>
@@ -458,7 +477,10 @@
 								d="M23.078,43c1.555-0.005,2.633-0.142,3.936-0.367c3.848-0.67,4.549-2.077,4.549-4.67V34h-9v-2h9.343h4.35c2.636,0,4.943-1.242,5.674-4.219c0.826-3.417,0.863-5.557,0-9.125C41.274,15.995,39.831,14,37.194,14h-3.632v5.104c0,2.966-2.686,5.896-5.764,5.896h-7.236c-2.523,0-5,1.862-5,4.377v8.586c0,2.439,1.759,4.263,4.218,4.672C19.719,42.641,21.536,43.006,23.078,43z M28.063,39c-0.821,0-1.5-0.677-1.5-1.502c0-0.833,0.679-1.498,1.5-1.498c0.837,0,1.5,0.664,1.5,1.498C29.563,38.32,28.899,39,28.063,39z"
 							></path>
 						</svg>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							Python
 						</p>
 					</div>
@@ -487,7 +509,10 @@
 								d="M7.85,21.86L7.71,22l0.01-0.14C7.76,21.86,7.81,21.87,7.85,21.86z"
 							></path>
 						</svg>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							NestJS
 						</p>
 					</div>
@@ -507,7 +532,10 @@
 								d="M39.385 32.558c-3.123 4.302-8.651 4.533-13.854 4.442H18.75h-1.938c4.428-1.593 7.063-1.972 9.754-3.4 5.068-2.665 10.078-8.496 11.121-14.562-1.93 5.836-7.779 10.85-13.109 12.889-3.652 1.393-10.248 2.745-10.248 2.745l-.267-.145C9.573 32.268 9.437 22.214 17.6 18.968c3.574-1.423 6.993-.641 10.854-1.593 4.122-1.012 8.89-4.208 10.83-8.375C41.456 15.667 44.07 26.106 39.385 32.558L39.385 32.558zM15.668 38.445C15.386 38.795 14.955 39 14.505 39c-.823 0-1.495-.677-1.495-1.5s.677-1.5 1.495-1.5c.341 0 .677.118.941.336C16.086 36.855 16.186 37.805 15.668 38.445L15.668 38.445z"
 							></path>
 						</svg>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							Spring
 						</p>
 					</div>
@@ -527,7 +555,10 @@
 								d="M39.194,26.084c0,0-1.787-1.192-3.807-1.192s-2.747,0.96-2.747,1.986 c0,2.648,7.381,2.383,7.381,7.712c0,8.209-11.254,4.568-11.254,4.568V35.22c0,0,2.152,1.622,4.733,1.622s2.483-1.688,2.483-1.92 c0-2.449-7.315-2.449-7.315-7.878c0-7.381,10.658-4.469,10.658-4.469L39.194,26.084z"
 							></path>
 						</svg>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							Typescript
 						</p>
 					</div>
@@ -538,7 +569,10 @@
 							class="laravelIcon w-10 h-10 md:w-11 md:h-11 lg:h-12 lg:w-12"
 							loading="lazy"
 						/>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							Laravel
 						</p>
 					</div>
@@ -549,7 +583,10 @@
 							class="golangIcon w-10 h-10 md:w-11 md:h-11 lg:h-12 lg:w-12"
 							loading="lazy"
 						/>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							Golang
 						</p>
 					</div>
@@ -575,7 +612,10 @@
 								d="M20.681 18.501c-.292.302-.753.566-1.262.484-.828-.134-1.463-1.133-1.417-1.508h0c.044-.374.751-.569 1.578-.435.287.047.548.128.768.228-.32-.688-.899-1.085-1.782-1.182-1.565-.174-3.226.644-3.56 1.097.007.11.02.251.033.417.093 1.147.265 3.284-.05 5.537-.208 1.485.393 3.169 1.567 4.395.757.79 1.641 1.29 2.513 1.438.111-.478.309-.944.513-1.425.113-.265.233-.547.346-.852l.162-.427c.443-1.155.9-2.35.909-4.703C21.003 20.66 20.892 19.627 20.681 18.501zM34.847 22.007c-.104-.729-.211-1.484-.185-2.303.023-.742.105-1.442.184-2.119.062-.533.11-1.045.138-1.55-1.289.107-2.145.479-2.551 1.108.168-.057.358-.102.568-.129.892-.116 1.543.141 1.618.637.055.363-.253.705-.388.836-.277.269-.626.442-.981.488-.064.008-.129.012-.192.012-.353 0-.69-.121-.949-.3.112 1.973 1.567 4.612 2.283 5.907.153.277.271.498.369.688C35.154 24.163 35.009 23.143 34.847 22.007z"
 							></path>
 						</svg>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							PostgreSQL
 						</p>
 					</div>
@@ -586,7 +626,10 @@
 							class="mySQLIcon w-10 h-10 md:w-11 md:h-11 lg:h-12 lg:w-12"
 							loading="lazy"
 						/>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							MySQL
 						</p>
 					</div>
@@ -630,7 +673,10 @@
 								d="M32,22h-3c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1h3c0.552,0,1,0.448,1,1v3 C33,21.552,32.552,22,32,22z"
 							></path>
 						</svg>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							Docker
 						</p>
 					</div>
@@ -641,7 +687,10 @@
 							class="fastAPIIcon w-10 h-10 md:w-11 md:h-11 lg:h-12 lg:w-12"
 							loading="lazy"
 						/>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							FastAPI
 						</p>
 					</div>
@@ -658,7 +707,10 @@
 								d="M24,9.604c-6.4,0-10.4,3.199-12,9.597c2.4-3.199,5.2-4.398,8.4-3.599 c1.826,0.456,3.131,1.781,4.576,3.247C27.328,21.236,30.051,24,36,24c6.4,0,10.4-3.199,12-9.598c-2.4,3.199-5.2,4.399-8.4,3.6 c-1.825-0.456-3.13-1.781-4.575-3.247C32.672,12.367,29.948,9.604,24,9.604L24,9.604z M12,24c-6.4,0-10.4,3.199-12,9.598 c2.4-3.199,5.2-4.399,8.4-3.599c1.825,0.457,3.13,1.781,4.575,3.246c2.353,2.388,5.077,5.152,11.025,5.152 c6.4,0,10.4-3.199,12-9.598c-2.4,3.199-5.2,4.399-8.4,3.599c-1.826-0.456-3.131-1.781-4.576-3.246C20.672,26.764,17.949,24,12,24 L12,24z"
 							></path>
 						</svg>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							Tailwind CSS
 						</p>
 					</div>
@@ -675,7 +727,10 @@
 								d="M42.2,22.1L25.9,5.8C25.4,5.3,24.7,5,24,5c0,0,0,0,0,0c-0.7,0-1.4,0.3-1.9,0.8l-3.5,3.5l4.1,4.1c0.4-0.2,0.8-0.3,1.3-0.3c1.7,0,3,1.3,3,3c0,0.5-0.1,0.9-0.3,1.3l4,4c0.4-0.2,0.8-0.3,1.3-0.3c1.7,0,3,1.3,3,3s-1.3,3-3,3c-1.7,0-3-1.3-3-3c0-0.5,0.1-0.9,0.3-1.3l-4-4c-0.1,0-0.2,0.1-0.3,0.1v10.4c1.2,0.4,2,1.5,2,2.8c0,1.7-1.3,3-3,3s-3-1.3-3-3c0-1.3,0.8-2.4,2-2.8V18.8c-1.2-0.4-2-1.5-2-2.8c0-0.5,0.1-0.9,0.3-1.3l-4.1-4.1L5.8,22.1C5.3,22.6,5,23.3,5,24c0,0.7,0.3,1.4,0.8,1.9l16.3,16.3c0,0,0,0,0,0c0.5,0.5,1.2,0.8,1.9,0.8s1.4-0.3,1.9-0.8l16.3-16.3c0.5-0.5,0.8-1.2,0.8-1.9C43,23.3,42.7,22.6,42.2,22.1z"
 							></path>
 						</svg>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							Git
 						</p>
 					</div>
@@ -686,7 +741,10 @@
 							class="svelteIcon w-10 h-10 md:w-11 md:h-11 lg:h-12 lg:w-12"
 							loading="lazy"
 						/>
-						<p id="icon-text" class="text-md text-gray-950 font-normal text-center lg:text-lg">
+						<p
+							id="icon-text"
+							class="text-base text-gray-950 dark:text-white font-normal text-center lg:text-lg"
+						>
 							Svelte
 						</p>
 					</div>
@@ -696,22 +754,24 @@
 	</div>
 </section>
 
+<!-- Body Section -->
 <section
 	id="experience"
-	class="bg-gray-50 font-grotesk min-h-screen max-w-full border-0 md:border-b border-gray-100"
+	class="bg-light dark:bg-dark font-grotesk max-w-full border-0 md:border-b border-gray-100 dark:border-gray-800"
 >
 	<div class="container mx-auto">
-		<div class="py-8 px-4 sm:py-16 sm:px-8 md:py-32 md:px-16 lg:py-48 lg:px-32">
+		<div class="py-8 px-4 sm:py-16 sm:px-8 md:py-32 md:px-16">
 			<div class="flex flex-col space-y-8">
 				<p
 					id="experience-head-text"
-					class="text-2xl text-gray-950 text-center font-bold sm:text-2xl md:text-3xl lg:text-4xl"
+					class="text-2xl text-gray-950 dark:text-white text-center font-bold md:text-3xl lg:text-4xl"
 				>
 					Professional Experience
 				</p>
 				<div
 					class="grid grid-cols-1 gap-3 justify-items-center sm:grid-cols-1 sm:gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-2 lg:gap-4"
 				>
+					<!-- Citiasia Logo -->
 					<div class="flex flex-col items-center space-y-4">
 						<a href={'https://citiasiainc.id/'} title="Citiasia Inc." class="bg-gray-900">
 							<img
@@ -723,32 +783,37 @@
 						</a>
 						<p
 							id="experience-text"
-							class="text-base text-gray-950 text-center font-semibold sm:text-base md:text-lg lg:text-xl"
+							class="text-base text-gray-950 dark:text-white text-center font-semibold md:text-lg lg:text-xl"
 						>
 							<a id="second-popover" href={'#'} class="underline underline-offset-2">
-								Full Stack Developer Internship
+								Full Stack Developer Apprenticeship
 							</a>
 						</p>
 						<p
 							id="experience-duration-text"
-							class="text-sm text-gray-950 font-normal text-center lg:text-md"
+							class="text-sm text-gray-950 dark:text-white font-normal text-center lg:text-base"
 						>
 							Feb 2023 - Jun 2023 (5 Months)
 						</p>
 					</div>
 					<Popover
 						triggeredBy="#second-popover"
-						class="w-72 text-sm font-normal text-gray-950 bg-gray-50 shadow-lg shadow-gray-400/50 lg:w-96 lg:text-md"
+						class="w-72 text-sm font-normal bg-light dark:bg-[#1c1d1c] border-none shadow-lg shadow-gray-400/50 dark:shadow-none lg:w-96 lg:text-base"
 						placement="bottom-start"
 						transition={fade}
 					>
 						<div class="p-2 space-y-2">
-							<h3 class="font-bold text-gray-950">Assignments:</h3>
-							Developing the backend system (REST API) for SurveyAsia services using the Laravel and
-							NestJS frameworks. I also took part in developing and updating the frontend appearance
-							of this service using the Vue.js framework and Laravel Blade.
+							<h3 class="font-bold text-gray-950 dark:text-white">Assignments:</h3>
+							<p class="font-normal text-gray-700 dark:text-gray-300">
+								Developing the backend system (REST API) for SurveyAsia services using the Laravel
+								and NestJS frameworks. I also took part in developing and updating the frontend
+								appearance of this service using the Vue.js framework and Laravel Blade.
+							</p>
 						</div>
 					</Popover>
+					<!-- End of Citiasia Logo -->
+
+					<!-- MTG Logo -->
 					<div class="flex flex-col space-y-4 items-center">
 						<a href={'https://www.marthatilaargroup.com/'} title="Martha Tilaar Group">
 							<img
@@ -760,33 +825,82 @@
 						</a>
 						<p
 							id="experience-text"
-							class="text-base text-gray-950 text-center font-bold sm:text-base md:text-lg lg:text-xl"
+							class="text-base text-gray-950 dark:text-white text-center font-bold md:text-lg lg:text-xl"
 						>
 							<a id="third-popover" href={'#'} class="underline underline-offset-2">
-								IT Developer Internship
+								IT (Information Technology) Developer Apprenticeship
 							</a>
 						</p>
 						<p
 							id="experience-duration-text"
-							class="text-sm text-gray-950 font-normal text-center lg:text-md"
+							class="text-sm text-gray-950 dark:text-white font-normal text-center lg:text-base"
 						>
 							Feb 2024 - Jun 2024 (5 Months)
 						</p>
 					</div>
 					<Popover
 						triggeredBy="#third-popover"
-						class="w-72 text-sm font-normal text-gray-950 bg-gray-50 shadow-lg shadow-gray-400/50 lg:w-96 lg:text-md"
+						class="w-72 text-sm font-normal bg-light dark:bg-[#1c1d1c] border-none shadow-lg shadow-gray-400/50 dark:shadow-none lg:w-96 lg:text-base"
 						placement="bottom-start"
 						transition={fade}
 					>
 						<div class="p-2 space-y-2">
-							<h3 class="font-bold text-gray-950">Assignments:</h3>
-							Create and develop the SGS Sales Distributor (SIDIA) application using the Vue.js and Ionic
-							framework. I also took part in creating and developing the backend system (REST API) for
-							this application using the Laravel framework version 11. For the development stage, I used
-							Docker and Vite to speed up application development to completion.
+							<h3 class="font-bold text-gray-950 dark:text-white">Assignments:</h3>
+							<p class="font-normal text-gray-700 dark:text-gray-300">
+								Create and develop the SGS Sales Distributor (SIDIA) application using the Vue.js
+								and Ionic framework. I also took part in creating and developing the backend system
+								(REST API) for this application using the Laravel framework version 11. For the
+								development stage, I used Docker and Vite to speed up application development to
+								completion.
+							</p>
 						</div>
 					</Popover>
+					<!-- End of MTG Logo -->
+
+					<!-- Perum Peruri Logo -->
+					<div class="flex flex-col space-y-4 items-center">
+						<a href={'https://www.peruri.co.id/'} title="Perum Peruri">
+							<img
+								src={PeruriLogo}
+								alt="Peruri Logo SVG"
+								class="image-flip w-[20rem] h-[20rem] sm:w-[32rem] sm:h-[22rem]"
+								loading="lazy"
+							/>
+						</a>
+						<p
+							id="experience-text"
+							class="text-base text-gray-950 dark:text-white text-center font-bold md:text-lg lg:text-xl"
+						>
+							<a id="fourth-popover" href={'#'} class="underline underline-offset-2">
+								IT (Information Technology) Staff Internship
+							</a>
+						</p>
+						<p
+							id="experience-duration-text"
+							class="text-sm text-gray-950 dark:text-white font-normal text-center lg:text-base"
+						>
+							Aug 2024 - Dec 2024 (5 Months)
+						</p>
+					</div>
+					<Popover
+						triggeredBy="#fourth-popover"
+						class="w-72 text-sm font-normal bg-light dark:bg-[#1c1d1c] border-none shadow-lg shadow-gray-400/50 dark:shadow-none lg:w-96 lg:text-base"
+						placement="bottom-start"
+						transition={fade}
+					>
+						<div class="p-2 space-y-2">
+							<h3 class="font-bold text-gray-950 dark:text-white">Assignments:</h3>
+							<p class="font-normal text-gray-700 dark:text-gray-300">
+								Develop and design the company's information technology architecture, support the
+								maintenance of existing systems, coordinate meeting agendas for stakeholders, design
+								security awareness posters, develop proposals for the 2024 Innovation & Kaizen
+								Awards, create mock-ups for Document Management Tools, develop COBIT 5 web
+								assessment software, and create department work program videos for the needs of the
+								2024 coordination meeting.
+							</p>
+						</div>
+					</Popover>
+					<!-- End of Perum Peruri Logo -->
 				</div>
 			</div>
 		</div>

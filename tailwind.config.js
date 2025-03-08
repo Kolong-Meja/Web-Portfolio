@@ -82,6 +82,7 @@ export default {
 			flipRight: 'flipRight 1.5s ease-in-out forwards'
 		}
 	},
+	darkMode: 'class',
 	plugins: [
 		flowbitePlugin,
 		plugin(function ({ matchUtilities, theme }) {

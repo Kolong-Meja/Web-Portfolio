@@ -1,25 +1,21 @@
 <script lang="ts">
 	import { zoomEffect } from '$lib/services/animation';
-
-	export let fontFamily: 'font-bodoni' | 'font-lato' | 'font-grotesk' = 'font-grotesk';
-
-	let footerClass: string = `bg-gray-50 ${fontFamily} max-h-screen max-w-full`;
 </script>
 
-<footer id="footer" class={footerClass}>
+<footer id="footer" class="bg-light dark:bg-dark font-grotesk max-h-screen max-w-full">
 	<div class="container mx-auto">
 		<div class="py-8 sm:py-10 md:py-12 lg:py-16">
 			<div class="flex flex-col space-y-6">
 				<div class="grid grid-rows-2 justify-items-center gap-3">
 					<p
 						id="footer-head-text"
-						class="text-2xl text-gray-950 font-bold font-dancing-script sm:text-2xl md:text-3xl lg:text-3xl"
+						class="text-2xl text-gray-950 dark:text-white font-bold font-grotesk md:text-3xl lg:text-3xl"
 					>
 						Follow me on:
 					</p>
 					<div class="grid grid-cols-3 justify-items-center gap-3 sm:gap-3 md:gap-4 lg:gap-4">
 						<a href={'https://github.com/Kolong-Meja'} title="Github">
-							<div class="text-gray-50 bg-gray-800 p-2.5 rounded-full" use:zoomEffect>
+							<div class="text-white bg-gray-700 p-2.5 rounded-full" use:zoomEffect>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="currentColor"
@@ -33,7 +29,7 @@
 							</div>
 						</a>
 						<a href={'https://www.linkedin.com/in/faisal-ramadhan-9ab18a269/'} title="Linkedin">
-							<div class="text-gray-50 bg-blue-500 p-2.5 rounded-full" use:zoomEffect>
+							<div class="text-white bg-gray-700 p-2.5 rounded-full" use:zoomEffect>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="currentColor"
@@ -47,7 +43,7 @@
 							</div>
 						</a>
 						<a href={'https://medium.com/@faisalramadhan1299'} title="Medium">
-							<div class="text-gray-50 bg-zinc-900 p-2.5 rounded-full" use:zoomEffect>
+							<div class="text-white bg-gray-700 p-2.5 rounded-full" use:zoomEffect>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="currentColor"
@@ -61,6 +57,11 @@
 							</div>
 						</a>
 					</div>
+				</div>
+				<div class="flex flex-col items-center">
+					<p class="text-xs font-normal text-gray-950 dark:text-white">
+						Copyright © {new Date().getFullYear()} Faisal Ramadhan Portfolio
+					</p>
 				</div>
 			</div>
 		</div>
