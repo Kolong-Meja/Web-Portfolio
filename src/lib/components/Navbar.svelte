@@ -2,9 +2,16 @@
 	import { onMount } from 'svelte';
 	import { navbarScrollAnimation, smoothScrollAnimation } from '$lib/services/animation';
 	import { FaisalLogoDark, FaisalLogo, DarkThemeBgImage, DefaultBgImage } from '$lib';
+	import { writable } from 'svelte/store';
+	import { t, locales, locale } from '$lib/services/translation';
 
 	let isDarkMode: boolean = false;
 	let isHidden: boolean = true;
+
+	function handleLanguageChange(event: Event) {
+		const currentTarget = event.currentTarget as HTMLSelectElement;
+		localStorage.lang = currentTarget.value;
+	}
 
 	function handleChange({ matches: dark }: MediaQueryListEvent) {
 		if (!localStorage.theme) {
@@ -134,11 +141,15 @@
 
 			<!-- Change Language Options -->
 			<select
+				bind:value={$locale}
+				on:change={handleLanguageChange}
 				id="countries"
 				class="w-36 sm:w-40 md:w-44 lg:w-48 bg-gray-50 border border-gray-300 text-gray-950 dark:text-white dark:bg-[#1c1d1c] dark:border-gray-800 text-sm rounded-lg focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 dark:focus:ring-violet-300 dark:focus:border-violet-300 focus:border-2 p-2.5 dark:bg-"
 			>
-				<option value="id">Indonesia</option>
-				<option value="en">English (United States)</option>
+				<option disabled value="">Select Language</option>
+				{#each $locales as locale}
+					<option value={locale}>{$t(`lang.${locale}`)}</option>
+				{/each}
 			</select>
 
 			<!-- End of Left Section -->
@@ -148,24 +159,30 @@
 		<ul class="hidden lg:flex flex-row items-center space-x-6">
 			<li class="list-none">
 				<a href={'#personal-info'} class="link">
-					<span class="nav-text text-base text-gray-950 dark:text-white">Personal Info</span>
+					<span class="nav-text text-base text-gray-950 dark:text-white"
+						>{$t('navbar.first_link')}</span
+					>
 				</a>
 			</li>
 			<li class="list-none">
 				<a href={'#expertise'} class="link">
-					<span class="nav-text text-base text-gray-950 dark:text-white">Strength & Expertise</span>
-				</a>
-			</li>
-			<li class="list-none">
-				<a href={'#experience'} class="link">
 					<span class="nav-text text-base text-gray-950 dark:text-white"
-						>Professional Experience</span
+						>{$t('navbar.second_link')}</span
 					>
 				</a>
 			</li>
 			<li class="list-none">
 				<a href={'#experience'} class="link">
-					<span class="nav-text text-base text-gray-950 dark:text-white">Projects</span>
+					<span class="nav-text text-base text-gray-950 dark:text-white"
+						>{$t('navbar.third_link')}</span
+					>
+				</a>
+			</li>
+			<li class="list-none">
+				<a href={'#experience'} class="link">
+					<span class="nav-text text-base text-gray-950 dark:text-white"
+						>{$t('navbar.fourth_link')}</span
+					>
 				</a>
 			</li>
 		</ul>

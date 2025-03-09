@@ -42,7 +42,7 @@
 		"animejs": "^3.2.2",
 		"flowbite": "^2.4.1",
 		"flowbite-svelte": "^0.46.12",
-		"i18n": "^0.15.1",
+		"sveltekit-i18n": "^2.4.2",
 		"tailwind-merge": "^2.3.0"
 	}
 }
