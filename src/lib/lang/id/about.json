@@ -1,3 +1,13 @@
 {
-  "body": 
+	"opening": "Saya adalah seorang",
+	"popover": {
+		"underlined": "Full Stack Developer",
+		"content": "Pengembang tumpukan penuh adalah pengembang atau teknisi yang dapat membangun bagian depan dan belakang situs web. Bagian depan (bagian situs web yang dilihat dan digunakan pengguna) dan bagian belakang (penyimpanan dan pemrosesan data di balik layar) memerlukan keahlian yang berbeda. Karena pengembang tumpukan penuh terlibat dalam semua aspek proses pengembangan, mereka harus memiliki keahlian di keduanya."
+	},
+	"body": "pemula yang memiliki fokus kuat dalam mencapai hasil, memiliki keahlian terkemuka dalam menganalisis, merancang, dan mengembangkan aplikasi dan situs web, serta menguasai sistem RESTful API. Saya telah menunjukkan keterampilan pemrograman yang sangat baik dengan pengalaman lebih dari 1,5 tahun dan memiliki 3 (tiga) sertifikat magang resmi. Selain keterampilan pemrograman yang sangat baik, saya juga menguasai beberapa bahasa pemrograman, kerangka kerja, dan alat. Jika Anda penasaran dengan portofolio saya, silakan kunjungi tautan di bawah ini dan jelajahi situs portofolio pribadi saya, salam hormat untuk Anda 🤝",
+	"links": {
+		"first_link": "Daftar Riwayat Hidup",
+		"second_link": "Sertifikat",
+		"third_link": "Portfolio Lainnya"
+	}
 }

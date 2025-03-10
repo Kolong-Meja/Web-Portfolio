@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 	import { navbarScrollAnimation, smoothScrollAnimation } from '$lib/services/animation';
 	import { FaisalLogoDark, FaisalLogo, DarkThemeBgImage, DefaultBgImage } from '$lib';
-	import { writable } from 'svelte/store';
 	import { t, locales, locale } from '$lib/services/translation';
 
 	let isDarkMode: boolean = false;
@@ -178,13 +177,13 @@
 					>
 				</a>
 			</li>
-			<li class="list-none">
+			<!-- <li class="list-none">
 				<a href={'#experience'} class="link">
 					<span class="nav-text text-base text-gray-950 dark:text-white"
 						>{$t('navbar.fourth_link')}</span
 					>
 				</a>
-			</li>
+			</li> -->
 		</ul>
 		<!-- End of Right Section -->
 
@@ -209,7 +208,7 @@
 
 	<div
 		id="mobile-menu"
-		class="hidden bg-gray-50 border-t border-t-gray-100 md:border-t-0 lg:border-t-0"
+		class="hidden bg-light dark:bg-dark border-t border-t-gray-100 dark:border-t-gray-800 md:border-t-0 lg:border-t-0"
 	>
 		<ul class="flex flex-col items-center space-y-4 p-4">
 			<li class="list-none">

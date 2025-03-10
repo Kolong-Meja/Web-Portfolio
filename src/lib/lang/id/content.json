@@ -1,0 +1,35 @@
+{
+	"expertise": {
+		"title": "Kekuatan dan Keahlian"
+	},
+	"experience": {
+		"title": "Pengalaman Profesional",
+		"citiasia": {
+			"date": "Februari 2023 - Juni 2023",
+			"duration": "5 Bulan",
+			"popover": {
+				"title": "Full Stack Developer Apprenticeship",
+				"subtitle": "Tugas",
+				"content": "Mengembangkan sistem backend (REST API) untuk layanan SurveyAsia menggunakan framework Laravel dan NestJS. Saya juga mengambil bagian dalam pengembangan dan pembaruan tampilan frontend layanan ini menggunakan framework Vue.js dan Laravel Blade."
+			}
+		},
+		"mtg": {
+			"date": "Februari 2024 - Juni 2024",
+			"duration": "5 Bulan",
+			"popover": {
+				"title": "IT Developer Apprenticeship",
+				"subtitle": "Tugas",
+				"content": "Membuat dan mengembangkan aplikasi SGS Sales Distributor (SIDIA) menggunakan framework Vue.js dan Ionic. Saya juga mengambil bagian dalam pembuatan dan pengembangan sistem backend (REST API) untuk aplikasi ini menggunakan framework Laravel versi 11. Untuk tahap pengembangan, saya menggunakan Docker dan Vite untuk mempercepat pengembangan aplikasi hingga tuntas."
+			}
+		},
+		"peruri": {
+			"date": "Agustus 2024 - Desember 2024",
+			"duration": "5 Bulan",
+			"popover": {
+				"title": "IT Staff Internship",
+				"subtitle": "Tugas",
+				"content": "Mengembangkan dan merancang arsitektur teknologi informasi perusahaan, mendukung pemeliharaan sistem yang ada, mengoordinasikan agenda rapat untuk para pemangku kepentingan, merancang poster kesadaran keamanan, mengembangkan proposal untuk Penghargaan Inovasi & Kaizen 2024, membuat tiruan untuk Alat Manajemen Dokumen, mengembangkan perangkat lunak penilaian web COBIT 5, dan membuat video program kerja departemen untuk kebutuhan rapat koordinasi 2024."
+			}
+		}
+	}
+}

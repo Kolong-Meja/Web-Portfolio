@@ -3,7 +3,6 @@
 	import { Popover } from 'flowbite-svelte';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-
 	import {
 		LaravelLogo,
 		GoLogo,
@@ -18,9 +17,8 @@
 		DarkThemeBgImage,
 		FaisalLogoDark
 	} from '$lib';
-
-	// additional dependencies
 	import anime from 'animejs/lib/anime.min';
+	import { t } from '$lib/services/translation';
 
 	onMount(() => {
 		const header = document.getElementById('main-header');
@@ -275,18 +273,11 @@
 					id="my-profile-desc"
 					class="text-slide description text-base font-normal leading-relaxed text-gray-950 dark:text-white self-start md:text-lg lg:text-xl"
 				>
-					I am an Entry Level <a
-						id="first-popover"
-						href={'#'}
-						class="underline underline-offset-2 font-semibold"
+					{$t('about.opening')}
+					<a id="first-popover" href={'#'} class="underline underline-offset-2 font-semibold">
+						{$t('about.popover.underlined')}</a
 					>
-						Full Stack Developer</a
-					> who has a strong focus on achieving results, has leading expertise in analyzing, designing,
-					and developing applications and websites, and mastering the RESTful API system. I have demonstrated
-					excellent programming skills with more than 1.5 years of experience and have 3 (three) official
-					internship certificates. In addition to excellent programming skills, I also master several
-					programming languages, frameworks, and tools. If you are curious about my portfolio, please
-					visit the link below and explore my personal portfolio site, best regards to you 🤝
+					{$t('about.body')}
 				</p>
 			</div>
 			<div class="flex flex-row flex-wrap gap-3 justify-start items-center w-full">
@@ -296,7 +287,7 @@
 					<a
 						id="file-link"
 						href="https://drive.google.com/file/d/1qQqfDh_M72bRTpJq-ebwea8UPsJQXMul/view?usp=sharing"
-						class="text-gray-950 dark:text-white">Resume</a
+						class="text-gray-950 dark:text-white">{$t('about.links.first_link')}</a
 					>
 				</p>
 				<p
@@ -305,7 +296,7 @@
 					<a
 						id="file-link"
 						href="https://drive.google.com/file/d/1CWNnv7h82f26WPMn-1P-MyjQc07ZHTQf/view?usp=sharing"
-						class="text-gray-950 dark:text-white">Certificates</a
+						class="text-gray-950 dark:text-white">{$t('about.links.second_link')}</a
 					>
 				</p>
 				<p
@@ -313,8 +304,8 @@
 				>
 					<a
 						id="file-link"
-						href="https://drive.google.com/file/d/1vGfj48SlxYBn0VcUMZChJlaous61SVDd/view?usp=sharing"
-						class="text-gray-950 dark:text-white">Other portfolio</a
+						href="https://drive.google.com/file/d/1VBL-RTDf590NW-jO4fluYl-p3fcpHJB2/view?usp=sharing"
+						class="text-gray-950 dark:text-white">{$t('about.links.third_link')}</a
 					>
 				</p>
 			</div>
@@ -325,13 +316,9 @@
 				transition={fade}
 			>
 				<div class="p-3 space-y-2">
-					<h3 class="font-bold text-gray-950 dark:text-white">Fullstack Developer</h3>
+					<h3 class="font-bold text-gray-950 dark:text-white">{$t('about.popover.underlined')}</h3>
 					<p class="font-normal text-gray-700 dark:text-gray-300">
-						A full stack developer is a developer or technician who can build both the front and
-						back end of a website. The front end (the part of the website that users see and use)
-						and the back end (the behind-the-scenes storage and processing of data) require
-						different skill sets. Because full stack developers are involved in all aspects of the
-						development process, they must have expertise in both.
+						{$t('about.popover.content')}
 					</p>
 				</div>
 			</Popover>
@@ -350,7 +337,7 @@
 					id="experise-head-text"
 					class="mb-8 text-2xl text-gray-950 dark:text-white text-center font-bold md:text-3xl lg:text-4xl"
 				>
-					Strength and Expertise
+					{$t('content.expertise.title')}
 				</p>
 				<div
 					class="grid grid-cols-3 gap-2 justify-items-center sm:grid-cols-4 sm:gap-3 md:grid-cols-4 md:gap-4 lg:grid-cols-5 lg:gap-5"
@@ -766,7 +753,7 @@
 					id="experience-head-text"
 					class="text-2xl text-gray-950 dark:text-white text-center font-bold md:text-3xl lg:text-4xl"
 				>
-					Professional Experience
+					{$t('content.experience.title')}
 				</p>
 				<div
 					class="grid grid-cols-1 gap-3 justify-items-center sm:grid-cols-1 sm:gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-2 lg:gap-4"
@@ -786,14 +773,16 @@
 							class="text-base text-gray-950 dark:text-white text-center font-semibold md:text-lg lg:text-xl"
 						>
 							<a id="second-popover" href={'#'} class="underline underline-offset-2">
-								Full Stack Developer Apprenticeship
+								{$t('content.experience.citiasia.popover.title')}
 							</a>
 						</p>
 						<p
 							id="experience-duration-text"
 							class="text-sm text-gray-950 dark:text-white font-normal text-center lg:text-base"
 						>
-							Feb 2023 - Jun 2023 (5 Months)
+							{$t('content.experience.citiasia.date')} ({$t(
+								'content.experience.citiasia.duration'
+							)})
 						</p>
 					</div>
 					<Popover
@@ -803,11 +792,11 @@
 						transition={fade}
 					>
 						<div class="p-2 space-y-2">
-							<h3 class="font-bold text-gray-950 dark:text-white">Assignments:</h3>
+							<h3 class="font-bold text-gray-950 dark:text-white">
+								{$t('content.experience.citiasia.popover.subtitle')}:
+							</h3>
 							<p class="font-normal text-gray-700 dark:text-gray-300">
-								Developing the backend system (REST API) for SurveyAsia services using the Laravel
-								and NestJS frameworks. I also took part in developing and updating the frontend
-								appearance of this service using the Vue.js framework and Laravel Blade.
+								{$t('content.experience.citiasia.popover.content')}:
 							</p>
 						</div>
 					</Popover>
@@ -828,14 +817,14 @@
 							class="text-base text-gray-950 dark:text-white text-center font-bold md:text-lg lg:text-xl"
 						>
 							<a id="third-popover" href={'#'} class="underline underline-offset-2">
-								IT (Information Technology) Developer Apprenticeship
+								{$t('content.experience.mtg.popover.title')}
 							</a>
 						</p>
 						<p
 							id="experience-duration-text"
 							class="text-sm text-gray-950 dark:text-white font-normal text-center lg:text-base"
 						>
-							Feb 2024 - Jun 2024 (5 Months)
+							{$t('content.experience.mtg.date')} ({$t('content.experience.mtg.duration')})
 						</p>
 					</div>
 					<Popover
@@ -845,13 +834,11 @@
 						transition={fade}
 					>
 						<div class="p-2 space-y-2">
-							<h3 class="font-bold text-gray-950 dark:text-white">Assignments:</h3>
+							<h3 class="font-bold text-gray-950 dark:text-white">
+								{$t('content.experience.mtg.popover.subtitle')}:
+							</h3>
 							<p class="font-normal text-gray-700 dark:text-gray-300">
-								Create and develop the SGS Sales Distributor (SIDIA) application using the Vue.js
-								and Ionic framework. I also took part in creating and developing the backend system
-								(REST API) for this application using the Laravel framework version 11. For the
-								development stage, I used Docker and Vite to speed up application development to
-								completion.
+								{$t('content.experience.mtg.popover.content')}:
 							</p>
 						</div>
 					</Popover>
@@ -872,14 +859,14 @@
 							class="text-base text-gray-950 dark:text-white text-center font-bold md:text-lg lg:text-xl"
 						>
 							<a id="fourth-popover" href={'#'} class="underline underline-offset-2">
-								IT (Information Technology) Staff Internship
+								{$t('content.experience.peruri.popover.title')}
 							</a>
 						</p>
 						<p
 							id="experience-duration-text"
 							class="text-sm text-gray-950 dark:text-white font-normal text-center lg:text-base"
 						>
-							Aug 2024 - Dec 2024 (5 Months)
+							{$t('content.experience.peruri.date')} ({$t('content.experience.peruri.duration')})
 						</p>
 					</div>
 					<Popover
@@ -889,14 +876,11 @@
 						transition={fade}
 					>
 						<div class="p-2 space-y-2">
-							<h3 class="font-bold text-gray-950 dark:text-white">Assignments:</h3>
+							<h3 class="font-bold text-gray-950 dark:text-white">
+								{$t('content.experience.peruri.popover.subtitle')}:
+							</h3>
 							<p class="font-normal text-gray-700 dark:text-gray-300">
-								Develop and design the company's information technology architecture, support the
-								maintenance of existing systems, coordinate meeting agendas for stakeholders, design
-								security awareness posters, develop proposals for the 2024 Innovation & Kaizen
-								Awards, create mock-ups for Document Management Tools, develop COBIT 5 web
-								assessment software, and create department work program videos for the needs of the
-								2024 coordination meeting.
+								{$t('content.experience.peruri.popover.content')}:
 							</p>
 						</div>
 					</Popover>
