@@ -2,7 +2,6 @@
 import {
 	smoothScrollAnimation,
 	zoomEffect,
-	changeTheme,
 	navbarScrollAnimation,
 	afterScrollDownAnimation
 } from './services/animation';
@@ -22,7 +21,6 @@ import PeruriLogo from '$lib/images/LOGO_PERURI_BARU.png';
 export {
 	smoothScrollAnimation,
 	zoomEffect,
-	changeTheme,
 	navbarScrollAnimation,
 	afterScrollDownAnimation,
 	LaravelLogo,

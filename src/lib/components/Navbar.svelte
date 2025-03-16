@@ -49,7 +49,27 @@
 
 	function toggleMenu() {
 		const menu = document.getElementById('mobile-menu');
-		menu?.classList.toggle('hidden');
+
+		if (menu) {
+			const isHidden = menu.classList.contains('hidden');
+
+			if (isHidden) {
+				menu.classList.remove('hidden');
+				menu.classList.add('animate-navSlideInDown');
+				menu.classList.remove('animate-navSlideOutUp');
+			} else {
+				menu.classList.add('animate-navSlideOutUp');
+				menu.classList.remove('animate-navSlideInDown');
+
+				menu.addEventListener(
+					'animationend',
+					() => {
+						menu.classList.add('hidden');
+					},
+					{ once: true }
+				);
+			}
+		}
 	}
 
 	onMount(() => {
@@ -88,7 +108,9 @@
 	</script>
 </svelte:head>
 
-<nav class="my-navbar hidden z-10 w-full font-grotesk bg-light dark:bg-dark">
+<nav
+	class="my-navbar hidden z-10 w-full font-grotesk bg-light dark:bg-dark transition-all duration-100 ease-in-out"
+>
 	<div class="container mx-auto flex justify-between items-center p-2 md:p-2.5">
 		<div class="flex flex-row items-center gap-4">
 			<!-- Left Section -->
@@ -106,7 +128,7 @@
 				<span
 					class="{isDarkMode
 						? 'translate-x-0 bg-gray-300'
-						: 'translate-x-8 bg-white'} pointer-events-none relative inline-block h-7 w-7 rounded-full shadow transform ring-0 transition ease-in-out duration-200"
+						: 'translate-x-8 bg-white'} pointer-events-none relative inline-block w-7 h-7 rounded-full shadow transform ring-0 transition ease-in-out duration-200"
 				>
 					<span
 						class="{isDarkMode
@@ -131,7 +153,7 @@
 						aria-hidden="true"
 					>
 						<!-- moon icon -->
-						<svg class="h-3 w-3 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+						<svg class="h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
 							<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
 						</svg>
 					</span>
@@ -206,10 +228,7 @@
 		</button>
 	</div>
 
-	<div
-		id="mobile-menu"
-		class="hidden bg-light dark:bg-dark border-t border-t-gray-100 dark:border-t-gray-800 md:border-t-0 lg:border-t-0"
-	>
+	<div id="mobile-menu" class="hidden">
 		<ul class="flex flex-col items-center space-y-4 p-4">
 			<li class="list-none">
 				<a href={'#personal-info'} class="link">

@@ -43,6 +43,7 @@
 		"flowbite": "^2.4.1",
 		"flowbite-svelte": "^0.46.12",
 		"sveltekit-i18n": "^2.4.2",
-		"tailwind-merge": "^2.3.0"
+		"tailwind-merge": "^2.3.0",
+		"typeit": "^8.8.7"
 	}
 }

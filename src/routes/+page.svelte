@@ -1,5 +1,6 @@
 <script lang="ts">
 	// svelte tools
+	import TypeIt from 'typeit';
 	import { Popover } from 'flowbite-svelte';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
@@ -12,28 +13,13 @@
 		CitiasiaLogo,
 		MTGLogo,
 		PeruriLogo,
-		FaisalLogo,
-		DefaultBgImage,
-		DarkThemeBgImage,
-		FaisalLogoDark
+		FaisalLogo
 	} from '$lib';
 	import anime from 'animejs/lib/anime.min';
 	import { t } from '$lib/services/translation';
+	import { fadeInScrollAnimation, headerBackgroundTransition } from '$lib/services/animation';
 
 	onMount(() => {
-		const header = document.getElementById('main-header');
-		const logo = document.getElementById('logo') as HTMLImageElement;
-
-		if (header && logo) {
-			if (localStorage.theme !== 'dark') {
-				header.style.backgroundImage = `url(${DefaultBgImage})`;
-				logo.src = FaisalLogo;
-			} else {
-				header.style.backgroundImage = `url(${DarkThemeBgImage})`;
-				logo.src = FaisalLogoDark;
-			}
-		}
-
 		let vueIconAnimation = anime({
 			targets: '.vueIcon',
 			translateY: -8,
@@ -227,6 +213,8 @@
 		}
 
 		requestAnimationFrame(loop);
+		headerBackgroundTransition();
+
 		// afterScrollDownAnimation(images, 'sm:animate-flipRight');
 		// afterScrollDownAnimation(texts, 'sm:animate-slideInRight');
 	});
@@ -235,15 +223,17 @@
 <!-- Header -->
 <header
 	id="main-header"
-	class="bg-auto bg-fixed bg-center font-grotesk max-h-screen max-w-full md:bg-cover"
+	class="bg-auto bg-fixed bg-center font-grotesk min-h-screen md:max-h-screen max-w-full md:bg-cover"
 >
-	<div class="container mx-auto">
-		<div class="flex flex-col justify-center items-center py-14 px-10 md:py-24 md:px-20">
+	<div class="show-on-scroll container mx-auto">
+		<div
+			class="flex flex-col justify-center items-center min-h-screen py-14 px-10 md:py-24 md:px-20"
+		>
 			<img
 				id="logo"
 				src={FaisalLogo}
 				alt="Faisal Logo"
-				class="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px]"
+				class="w-81 h-81 sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px]"
 				loading="lazy"
 			/>
 		</div>
@@ -253,25 +243,25 @@
 <!-- Body Section -->
 <section
 	id="personal-info"
-	class="bg-light dark:bg-dark font-grotesk min-h-screen max-w-full border-0 md:border-b border-gray-100 dark:border-gray-800"
+	class="bg-light dark:bg-dark font-grotesk min-h-screen max-w-full border-0 md:border-b border-gray-100 dark:border-gray-800 transition-all duration-100 ease-in-out"
 >
-	<div class="container mx-auto">
+	<div class="show-on-scroll container mx-auto">
 		<div
-			class="flex flex-col space-y-4 py-8 px-4 sm:py-16 sm:px-8 md:py-32 md:px-16 md:space-y-6 lg:py-48 lg:px-32 lg:space-y-8"
+			class="flex flex-col py-8 px-4 sm:py-16 sm:px-8 md:py-32 md:px-16 lg:py-48 lg:px-32"
 		>
 			<div
 				id="personal-info-inner-box"
-				class="flex flex-col justify-center items-center space-y-6 p-6 bg-light dark:bg-dark rounded-lg sm:p-7 md:p-8 lg:p-10"
+				class="flex flex-col justify-center items-center rounded-lg p-6 sm:p-7 md:p-8 lg:p-10 transition-all duration-100 ease-in-out"
 			>
 				<h1
 					id="my-name"
-					class="text-slide title text-3xl text-wrap font-bold tracking-normal text-gray-950 dark:text-white self-start sm:text-4xl md:text-6xl lg:text-8xl"
+					class="text-3xl mb-6 text-wrap font-bold tracking-normal text-gray-950 dark:text-white self-start sm:text-4xl md:text-6xl lg:text-8xl"
 				>
 					Faisal Ramadhan
 				</h1>
 				<p
 					id="my-profile-desc"
-					class="text-slide description text-base font-normal leading-relaxed text-gray-950 dark:text-white self-start md:text-lg lg:text-xl"
+					class="text-base font-normal leading-relaxed text-gray-950 dark:text-white self-start md:text-lg lg:text-xl"
 				>
 					{$t('about.opening')}
 					<a id="first-popover" href={'#'} class="underline underline-offset-2 font-semibold">
@@ -280,9 +270,11 @@
 					{$t('about.body')}
 				</p>
 			</div>
-			<div class="flex flex-row flex-wrap gap-3 justify-start items-center w-full">
+			<div
+				class="flex flex-row flex-wrap gap-3 items-center justify-start w-full px-6 sm:px-7 md:px-8 lg:px-10"
+			>
 				<p
-					class="personal-link bg-gray-200 dark:bg-[#433D8B] text-base font-normal py-2.5 px-6 rounded-full md:text-lg"
+					class="personal-link bg-gray-200 dark:bg-[#433D8B] text-sm sm:text-base font-normal py-1.5 px-4 sm:py-2 sm:px-5 md:py-2.5 md:px-6 rounded-full md:text-lg"
 				>
 					<a
 						id="file-link"
@@ -291,7 +283,7 @@
 					>
 				</p>
 				<p
-					class="personal-link bg-gray-200 dark:bg-[#433D8B] text-base font-normal py-2.5 px-6 rounded-full md:text-lg"
+					class="personal-link bg-gray-200 dark:bg-[#433D8B] text-sm sm:text-base font-normal py-1.5 px-4 sm:py-2 sm:px-5 md:py-2.5 md:px-6 rounded-full md:text-lg"
 				>
 					<a
 						id="file-link"
@@ -300,7 +292,7 @@
 					>
 				</p>
 				<p
-					class="personal-link bg-gray-200 dark:bg-[#433D8B] text-base font-normal py-2.5 px-6 rounded-full md:text-lg"
+					class="personal-link bg-gray-200 dark:bg-[#433D8B] text-sm sm:text-base font-normal py-1.5 px-4 sm:py-2 sm:px-5 md:py-2.5 md:px-6 rounded-full md:text-lg"
 				>
 					<a
 						id="file-link"
@@ -328,9 +320,9 @@
 
 <section
 	id="expertise"
-	class="bg-light dark:bg-dark font-grotesk max-w-full border-0 md:border-b border-gray-100 dark:border-gray-800"
+	class="bg-light dark:bg-dark font-grotesk max-w-full border-0 md:border-b border-gray-100 dark:border-gray-800 transition-all duration-100 ease-in-out"
 >
-	<div class="container mx-auto">
+	<div class="show-on-scroll container mx-auto">
 		<div class="py-8 px-4 sm:py-16 sm:px-8 md:py-32 md:px-16">
 			<div class="flex flex-col space-y-4">
 				<p
@@ -744,9 +736,9 @@
 <!-- Body Section -->
 <section
 	id="experience"
-	class="bg-light dark:bg-dark font-grotesk max-w-full border-0 md:border-b border-gray-100 dark:border-gray-800"
+	class="bg-light dark:bg-dark font-grotesk max-w-full border-0 md:border-b border-gray-100 dark:border-gray-800 transition-all duration-100 ease-in-out"
 >
-	<div class="container mx-auto">
+	<div class="show-on-scroll container mx-auto">
 		<div class="py-8 px-4 sm:py-16 sm:px-8 md:py-32 md:px-16">
 			<div class="flex flex-col space-y-8">
 				<p
@@ -756,7 +748,7 @@
 					{$t('content.experience.title')}
 				</p>
 				<div
-					class="grid grid-cols-1 gap-3 justify-items-center sm:grid-cols-1 sm:gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-2 lg:gap-4"
+					class="grid grid-cols-1 gap-6 justify-items-center sm:grid-cols-1 sm:gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-2 lg:gap-4"
 				>
 					<!-- Citiasia Logo -->
 					<div class="flex flex-col items-center space-y-4">
@@ -764,26 +756,28 @@
 							<img
 								src={CitiasiaLogo}
 								alt="Citiasia inc. Logo SVG"
-								class="image-flip w-[20rem] h-[20rem] sm:w-[22rem] sm:h-[22rem]"
+								class="image-flip w-[16rem] h-[16rem] sm:w-[22rem] sm:h-[22rem]"
 								loading="lazy"
 							/>
 						</a>
-						<p
-							id="experience-text"
-							class="text-base text-gray-950 dark:text-white text-center font-semibold md:text-lg lg:text-xl"
-						>
-							<a id="second-popover" href={'#'} class="underline underline-offset-2">
-								{$t('content.experience.citiasia.popover.title')}
-							</a>
-						</p>
-						<p
-							id="experience-duration-text"
-							class="text-sm text-gray-950 dark:text-white font-normal text-center lg:text-base"
-						>
-							{$t('content.experience.citiasia.date')} ({$t(
-								'content.experience.citiasia.duration'
-							)})
-						</p>
+						<div class="flex flex-col items-center space-y-1">
+							<p
+								id="experience-text"
+								class="text-base text-gray-950 dark:text-white text-center font-semibold md:text-lg lg:text-xl"
+							>
+								<a id="second-popover" href={'#'} class="underline underline-offset-2">
+									{$t('content.experience.citiasia.popover.title')}
+								</a>
+							</p>
+							<p
+								id="experience-duration-text"
+								class="text-sm text-gray-950 dark:text-white font-normal text-center lg:text-base"
+							>
+								{$t('content.experience.citiasia.date')} ({$t(
+									'content.experience.citiasia.duration'
+								)})
+							</p>
+						</div>
 					</div>
 					<Popover
 						triggeredBy="#second-popover"
@@ -803,29 +797,31 @@
 					<!-- End of Citiasia Logo -->
 
 					<!-- MTG Logo -->
-					<div class="flex flex-col space-y-4 items-center">
+					<div class="flex flex-col items-center space-y-4">
 						<a href={'https://www.marthatilaargroup.com/'} title="Martha Tilaar Group">
 							<img
 								src={MTGLogo}
 								alt="MTG Logo SVG"
-								class="image-flip w-[20rem] h-[20rem] sm:w-[22rem] sm:h-[22rem]"
+								class="image-flip w-[16rem] h-[16rem] sm:w-[22rem] sm:h-[22rem]"
 								loading="lazy"
 							/>
 						</a>
-						<p
-							id="experience-text"
-							class="text-base text-gray-950 dark:text-white text-center font-bold md:text-lg lg:text-xl"
-						>
-							<a id="third-popover" href={'#'} class="underline underline-offset-2">
-								{$t('content.experience.mtg.popover.title')}
-							</a>
-						</p>
-						<p
-							id="experience-duration-text"
-							class="text-sm text-gray-950 dark:text-white font-normal text-center lg:text-base"
-						>
-							{$t('content.experience.mtg.date')} ({$t('content.experience.mtg.duration')})
-						</p>
+						<div class="flex flex-col items-center space-y-1">
+							<p
+								id="experience-text"
+								class="text-base text-gray-950 dark:text-white text-center font-bold md:text-lg lg:text-xl"
+							>
+								<a id="third-popover" href={'#'} class="underline underline-offset-2">
+									{$t('content.experience.mtg.popover.title')}
+								</a>
+							</p>
+							<p
+								id="experience-duration-text"
+								class="text-sm text-gray-950 dark:text-white font-normal text-center lg:text-base"
+							>
+								{$t('content.experience.mtg.date')} ({$t('content.experience.mtg.duration')})
+							</p>
+						</div>
 					</div>
 					<Popover
 						triggeredBy="#third-popover"
@@ -845,29 +841,31 @@
 					<!-- End of MTG Logo -->
 
 					<!-- Perum Peruri Logo -->
-					<div class="flex flex-col space-y-4 items-center">
+					<div class="flex flex-col items-center space-y-4">
 						<a href={'https://www.peruri.co.id/'} title="Perum Peruri">
 							<img
 								src={PeruriLogo}
 								alt="Peruri Logo SVG"
-								class="image-flip w-[20rem] h-[20rem] sm:w-[32rem] sm:h-[22rem]"
+								class="image-flip w-[20rem] h-[14rem] sm:w-[32rem] sm:h-[24rem]"
 								loading="lazy"
 							/>
 						</a>
-						<p
-							id="experience-text"
-							class="text-base text-gray-950 dark:text-white text-center font-bold md:text-lg lg:text-xl"
-						>
-							<a id="fourth-popover" href={'#'} class="underline underline-offset-2">
-								{$t('content.experience.peruri.popover.title')}
-							</a>
-						</p>
-						<p
-							id="experience-duration-text"
-							class="text-sm text-gray-950 dark:text-white font-normal text-center lg:text-base"
-						>
-							{$t('content.experience.peruri.date')} ({$t('content.experience.peruri.duration')})
-						</p>
+						<div class="flex flex-col items-center space-y-1">
+							<p
+								id="experience-text"
+								class="text-base text-gray-950 dark:text-white text-center font-bold md:text-lg lg:text-xl"
+							>
+								<a id="fourth-popover" href={'#'} class="underline underline-offset-2">
+									{$t('content.experience.peruri.popover.title')}
+								</a>
+							</p>
+							<p
+								id="experience-duration-text"
+								class="text-sm text-gray-950 dark:text-white font-normal text-center lg:text-base"
+							>
+								{$t('content.experience.peruri.date')} ({$t('content.experience.peruri.duration')})
+							</p>
+						</div>
 					</div>
 					<Popover
 						triggeredBy="#fourth-popover"

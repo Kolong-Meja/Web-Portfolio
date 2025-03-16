@@ -2,8 +2,11 @@
 	import { zoomEffect } from '$lib/services/animation';
 </script>
 
-<footer id="footer" class="bg-light dark:bg-dark font-grotesk max-h-screen max-w-full">
-	<div class="container mx-auto">
+<footer
+	id="footer"
+	class="bg-light dark:bg-dark font-grotesk max-h-screen max-w-full transition-all duration-100 ease-in-out"
+>
+	<div class="show-on-scroll container mx-auto">
 		<div class="py-8 sm:py-10 md:py-12 lg:py-16">
 			<div class="flex flex-col space-y-6">
 				<div class="grid grid-rows-2 justify-items-center gap-3">
@@ -15,7 +18,10 @@
 					</p>
 					<div class="grid grid-cols-3 justify-items-center gap-3 sm:gap-3 md:gap-4 lg:gap-4">
 						<a href={'https://github.com/Kolong-Meja'} title="Github">
-							<div class="text-white bg-gray-700 p-2.5 rounded-full" use:zoomEffect>
+							<div
+								class="text-white bg-gray-400 dark:bg-gray-700 p-2.5 rounded-full"
+								use:zoomEffect
+							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="currentColor"
@@ -29,7 +35,10 @@
 							</div>
 						</a>
 						<a href={'https://www.linkedin.com/in/faisal-ramadhan-9ab18a269/'} title="Linkedin">
-							<div class="text-white bg-gray-700 p-2.5 rounded-full" use:zoomEffect>
+							<div
+								class="text-white bg-gray-400 dark:bg-gray-700 p-2.5 rounded-full"
+								use:zoomEffect
+							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="currentColor"
@@ -43,7 +52,10 @@
 							</div>
 						</a>
 						<a href={'https://medium.com/@faisalramadhan1299'} title="Medium">
-							<div class="text-white bg-gray-700 p-2.5 rounded-full" use:zoomEffect>
+							<div
+								class="text-white bg-gray-400 dark:bg-gray-700 p-2.5 rounded-full"
+								use:zoomEffect
+							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="currentColor"

@@ -19,6 +19,26 @@ export default {
 				dark: '#070F2B'
 			},
 			keyframes: {
+				navSlideInDown: {
+					'0%': {
+						transform: 'translateY(-20%)',
+						opacity: 0
+					},
+					'100%': {
+						transform: 'translateY(0%)',
+						opacity: 1
+					}
+				},
+				navSlideOutUp: {
+					'0%': {
+						transform: 'translateY(0%)',
+						opacity: 1
+					},
+					'100%': {
+						transform: 'translateY(-20%)',
+						opacity: 0
+					}
+				},
 				slideInDown: {
 					'0%': {
 						transform: 'translateY(-100%)',
@@ -71,15 +91,22 @@ export default {
 					'0%': { transform: 'rotateY(-100deg)' },
 					'60%': { transform: 'rotateY(25deg)' },
 					'100%': { transform: 'rotateY(0deg)' }
+				},
+				fadeIn: {
+					'0%': { opacity: 0 },
+					'100%': { opacity: 1 }
 				}
 			}
 		},
 		animation: {
-			slideInDown: 'slideInDown 0.2s ease-out forwards',
-			slideOutUp: 'slideOutUp 0.2s ease-out forwards',
-			slideInLeft: 'slideInLeft 1.2s ease-out forwards',
-			slideInRight: 'slideInRight 1.2s ease-out forwards',
-			flipRight: 'flipRight 1.5s ease-in-out forwards'
+			navSlideInDown: 'navSlideInDown 0.2s ease-out forwards',
+			navSlideOutUp: 'navSlideOutUp 0.2s ease-out forwards',
+			slideInDown: 'slideInDown 0.3s ease-out forwards',
+			slideOutUp: 'slideOutUp 0.3s ease-out forwards',
+			slideInLeft: 'slideInLeft 1.0s ease-out forwards',
+			slideInRight: 'slideInRight 1.0s ease-out forwards',
+			flipRight: 'flipRight 1.2s ease-in-out forwards',
+			fadeIn: 'fadeIn 0.7s ease-in forwards'
 		}
 	},
 	darkMode: 'class',
