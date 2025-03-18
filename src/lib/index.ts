@@ -1,38 +1,44 @@
 // place files you want to import through the `$lib` alias in this folder.
-import {
-	smoothScrollAnimation,
-	zoomEffect,
-	navbarScrollAnimation,
-	afterScrollDownAnimation
-} from './services/animation';
-import LaravelLogo from '$lib/images/laravel-2.svg';
-import GoLogo from '$lib/images/golang_logo_icon_171073.svg';
-import MySQLLogo from '$lib/images/mysql-logo-svgrepo-com.svg';
-import FastAPILogo from '$lib/images/fastapi-1.svg';
-import CitiasiaLogo from '$lib/images/byBexgYiLiPerRvCZWYirdZPEOOgEMtN4TBNvRO4.png';
-import SvelteLogo from '$lib/images/svelte-icon.svg';
-import MTGLogo from '$lib/images/logo_mtg.png';
-import FaisalLogo from '$lib/images/Faisal Ramadhan.png';
-import FaisalLogoDark from '$lib/images/Faisal Ramadhan-dark.png';
-import DefaultBgImage from '$lib/images/Test_BG-2.jpg';
-import DarkThemeBgImage from '$lib/images/night-sky.jpg';
-import PeruriLogo from '$lib/images/LOGO_PERURI_BARU.png';
+import { smoothScrollAnimation, zoomEffect, navbarScrollAnimation } from './services/handler';
+import LaravelIcon from '$lib/images/laravel.svg';
+import GolangIcon from '$lib/images/golang.svg';
+import MysqlIcon from '$lib/images/mysql.svg';
+import FastAPIIcon from '$lib/images/fastapi.svg';
+import SvelteIcon from '$lib/images/svelte.svg';
+import MongoDBIcon from '$lib/images/mongodb.svg';
+import CitiasiaLogo from '$lib/images/citiasia-inc-logo-second.png';
+import MTGLogo from '$lib/images/mtg-logo.png';
+import PeruriLogo from '$lib/images/peruri-logo.png';
+import LightSignature from '$lib/images/light-theme-signature.png';
+import DarkSignature from '$lib/images/dark-theme-signature.png';
+import LightBackground from '$lib/images/light-background.jpg';
+import DarkBackground from '$lib/images/dark-background.jpg';
+import AboutSectionComponentGif from '$lib/images/about-section-component.gif';
+import HeaderBackgroundVideo from '$lib/images/header-background.mp4';
+import AstronautPixel from '$lib/images/space-pixel-1.png';
+import AlienPixel from '$lib/images/space-pixel-2.png';
+import UFOPixel from '$lib/images/space-pixel-3.png';
 
 export {
 	smoothScrollAnimation,
 	zoomEffect,
 	navbarScrollAnimation,
-	afterScrollDownAnimation,
-	LaravelLogo,
-	GoLogo,
-	MySQLLogo,
-	FastAPILogo,
-	SvelteLogo,
+	LaravelIcon,
+	GolangIcon,
+	MysqlIcon,
+	FastAPIIcon,
+	SvelteIcon,
+	MongoDBIcon,
 	CitiasiaLogo,
 	MTGLogo,
-	FaisalLogo,
-	FaisalLogoDark,
-	DefaultBgImage,
-	DarkThemeBgImage,
-	PeruriLogo
+	LightSignature,
+	DarkSignature,
+	LightBackground,
+	DarkBackground,
+	PeruriLogo,
+	AboutSectionComponentGif,
+	HeaderBackgroundVideo,
+	AstronautPixel,
+	AlienPixel,
+	UFOPixel
 };

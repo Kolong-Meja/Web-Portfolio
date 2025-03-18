@@ -1,6 +1,6 @@
 {
 	"expertise": {
-		"title": "Strength and Expertise"
+		"title": "The most tools i'm using for work"
 	},
 	"experience": {
 		"title": "Professional Experience",
@@ -8,7 +8,7 @@
 			"date": "February 2023 - June 2023",
 			"duration": "5 Months",
 			"popover": {
-				"title": "Full Stack Developer Apprenticeship",
+				"title": "Full Stack Developer Internship",
 				"subtitle": "Assignments",
 				"content": "Developing the backend system (REST API) for SurveyAsia services using Laravel and NestJS frameworks. I also took part in developing and updating the frontend appearance of this service using Vue.js and Laravel Blade frameworks."
 			}
@@ -17,7 +17,7 @@
 			"date": "February 2024 - June 2024",
 			"duration": "5 Months",
 			"popover": {
-				"title": "IT Developer Apprenticeship",
+				"title": "IT Developer Internship",
 				"subtitle": "Assignments",
 				"content": "Create and develop the SGS Sales Distributor (SIDIA) application using the Vue.js and Ionic framework. I also took part in creating and developing the backend system (REST API) for this application using the Laravel framework version 11. For the development stage, I used Docker and Vite to speed up application development to completion."
 			}

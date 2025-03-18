@@ -99,8 +99,8 @@ export default {
 			}
 		},
 		animation: {
-			navSlideInDown: 'navSlideInDown 0.2s ease-out forwards',
-			navSlideOutUp: 'navSlideOutUp 0.2s ease-out forwards',
+			navSlideInDown: 'navSlideInDown 0.5s ease-in-out forwards',
+			navSlideOutUp: 'navSlideOutUp 0.5s ease-in-out forwards',
 			slideInDown: 'slideInDown 0.3s ease-out forwards',
 			slideOutUp: 'slideOutUp 0.3s ease-out forwards',
 			slideInLeft: 'slideInLeft 1.0s ease-out forwards',

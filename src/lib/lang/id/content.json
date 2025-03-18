@@ -1,6 +1,6 @@
 {
 	"expertise": {
-		"title": "Kekuatan dan Keahlian"
+		"title": "Biasanya saya banyak bekerja menggunakan beberapa alat"
 	},
 	"experience": {
 		"title": "Pengalaman Profesional",
@@ -8,7 +8,7 @@
 			"date": "Februari 2023 - Juni 2023",
 			"duration": "5 Bulan",
 			"popover": {
-				"title": "Full Stack Developer Apprenticeship",
+				"title": "Full Stack Developer Internship",
 				"subtitle": "Tugas",
 				"content": "Mengembangkan sistem backend (REST API) untuk layanan SurveyAsia menggunakan framework Laravel dan NestJS. Saya juga mengambil bagian dalam pengembangan dan pembaruan tampilan frontend layanan ini menggunakan framework Vue.js dan Laravel Blade."
 			}
@@ -17,7 +17,7 @@
 			"date": "Februari 2024 - Juni 2024",
 			"duration": "5 Bulan",
 			"popover": {
-				"title": "IT Developer Apprenticeship",
+				"title": "IT Developer Internship",
 				"subtitle": "Tugas",
 				"content": "Membuat dan mengembangkan aplikasi SGS Sales Distributor (SIDIA) menggunakan framework Vue.js dan Ionic. Saya juga mengambil bagian dalam pembuatan dan pengembangan sistem backend (REST API) untuk aplikasi ini menggunakan framework Laravel versi 11. Untuk tahap pengembangan, saya menggunakan Docker dan Vite untuk mempercepat pengembangan aplikasi hingga tuntas."
 			}

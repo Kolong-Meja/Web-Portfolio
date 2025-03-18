@@ -1,22 +1,20 @@
 <script lang="ts">
-	import { zoomEffect } from '$lib/services/animation';
+	import { zoomEffect } from '$lib/services/handler';
 </script>
 
 <footer
-	id="footer"
-	class="bg-light dark:bg-dark font-grotesk max-h-screen max-w-full transition-all duration-100 ease-in-out"
+	class="section z-0 w-screen h-full max-w-full max-h-full bg-light dark:bg-black font-grotesk"
 >
 	<div class="show-on-scroll container mx-auto">
-		<div class="py-8 sm:py-10 md:py-12 lg:py-16">
+		<div class="py-8 px-2 sm:py-12 sm:px-3 md:py-16 md:px-4 lg:py-20 lg:px-5">
 			<div class="flex flex-col space-y-6">
-				<div class="grid grid-rows-2 justify-items-center gap-3">
+				<div class="grid grid-rows-2 justify-items-center gap-4">
 					<p
-						id="footer-head-text"
-						class="text-2xl text-gray-950 dark:text-white font-bold font-grotesk md:text-3xl lg:text-3xl"
+						class="text-xl text-gray-950 dark:text-white font-bold font-grotesk sm:text-2xl md:text-3xl"
 					>
 						Follow me on:
 					</p>
-					<div class="grid grid-cols-3 justify-items-center gap-3 sm:gap-3 md:gap-4 lg:gap-4">
+					<div class="grid grid-cols-3 justify-items-center gap-3 md:gap-4">
 						<a href={'https://github.com/Kolong-Meja'} title="Github">
 							<div
 								class="text-white bg-gray-400 dark:bg-gray-700 p-2.5 rounded-full"
@@ -71,7 +69,7 @@
 					</div>
 				</div>
 				<div class="flex flex-col items-center">
-					<p class="text-xs font-normal text-gray-950 dark:text-white">
+					<p class="text-xs sm:text-sm font-normal text-gray-950 dark:text-white">
 						Copyright © {new Date().getFullYear()} Faisal Ramadhan Portfolio
 					</p>
 				</div>
