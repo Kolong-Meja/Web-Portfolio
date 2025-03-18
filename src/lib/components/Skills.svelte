@@ -273,7 +273,7 @@ mySkills(skills);`;
 
 <section
 	id="skills"
-	class="section w-screen min-h-screen max-w-full max-h-full border-none bg-light dark:bg-gradient-to-b from-dark via-[#070a18] to-[#050814] font-grotesk transition-all duration-100 ease-in-out"
+	class="section w-screen min-h-screen max-w-full max-h-full border-b border-gray-200 dark:border-gray-800 bg-light dark:bg-gradient-to-b from-dark via-[#070a18] to-[#050814] font-grotesk transition-all duration-100 ease-in-out"
 >
 	<div class="show-on-scroll container mx-auto">
 		<div

@@ -7,7 +7,7 @@
 
 <section
 	id="experience"
-	class="section w-screen min-h-screen max-w-full max-h-full border-none bg-light dark:bg-gradient-to-b from-[#050814] via-[#020308] to-[#000000] font-grotesk transition-all duration-100 ease-in-out"
+	class="section w-screen min-h-screen max-w-full max-h-full border-b border-gray-200 dark:border-gray-800 bg-light dark:bg-gradient-to-b from-[#050814] via-[#020308] to-[#000000] font-grotesk transition-all duration-100 ease-in-out"
 >
 	<div class="show-on-scroll container mx-auto">
 		<div
@@ -49,7 +49,7 @@
 					</div>
 					<Popover
 						triggeredBy="#second-popover"
-						class="w-72 lg:w-96 text-sm lg:text-base font-normal bg-light dark:bg-[#1c1d1c] border-none shadow-lg shadow-gray-400/50 dark:shadow-none"
+						class="w-72 lg:w-96 z-10 text-sm lg:text-base font-normal bg-light dark:bg-[#1c1d1c] border-none shadow-lg shadow-gray-400/50 dark:shadow-none"
 						placement="bottom-start"
 						transition={fade}
 					>
@@ -89,7 +89,7 @@
 					</div>
 					<Popover
 						triggeredBy="#third-popover"
-						class="w-72 lg:w-96 text-sm lg:text-base font-normal bg-light dark:bg-[#1c1d1c] border-none shadow-lg shadow-gray-400/50 dark:shadow-none"
+						class="w-72 lg:w-96 z-10 text-sm lg:text-base font-normal bg-light dark:bg-[#1c1d1c] border-none shadow-lg shadow-gray-400/50 dark:shadow-none"
 						placement="bottom-start"
 						transition={fade}
 					>
@@ -129,7 +129,7 @@
 					</div>
 					<Popover
 						triggeredBy="#fourth-popover"
-						class="w-72 lg:w-96 text-sm lg:text-base font-normal bg-light dark:bg-[#1c1d1c] border-none shadow-lg shadow-gray-400/50 dark:shadow-none"
+						class="w-72 lg:w-96 z-10 text-sm lg:text-base font-normal bg-light dark:bg-[#1c1d1c] border-none shadow-lg shadow-gray-400/50 dark:shadow-none"
 						placement="bottom-start"
 						transition={fade}
 					>

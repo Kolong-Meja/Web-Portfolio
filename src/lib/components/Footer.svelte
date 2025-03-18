@@ -2,9 +2,7 @@
 	import { zoomEffect } from '$lib/services/handler';
 </script>
 
-<footer
-	class="section z-0 w-screen h-full max-w-full max-h-full bg-light dark:bg-black font-grotesk"
->
+<footer class="section w-screen h-full max-w-full max-h-full bg-light dark:bg-black font-grotesk">
 	<div class="show-on-scroll container mx-auto">
 		<div class="py-8 px-2 sm:py-12 sm:px-3 md:py-16 md:px-4 lg:py-20 lg:px-5">
 			<div class="flex flex-col space-y-6">

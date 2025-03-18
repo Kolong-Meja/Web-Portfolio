@@ -216,23 +216,27 @@
 
 		<div
 			id="mobile-menu"
-			class="hidden absolute top-14 right-0 bg-light border-t border-gray-800 dark:bg-gradient-to-br from-[#050814] via-[#020308] to-[#000000] w-full transition-all duration-100 ease-in-out"
+			class="hidden absolute top-14 right-0 bg-light border-t border-gray-200 dark:border-gray-800 dark:bg-gradient-to-br from-[#050814] via-[#020308] to-[#000000] w-full transition-all duration-100 ease-in-out"
 		>
 			<ul class="flex flex-col items-center space-y-4 p-4">
 				<li class="list-none">
-					<a href={'#personal-info'} class="link">
-						<span class="nav-text text-sm text-gray-950 dark:text-white">Personal Info</span>
+					<a href={'#about'} class="link">
+						<span class="nav-text text-sm text-gray-950 dark:text-white"
+							>{$t('navbar.first_link')}</span
+						>
 					</a>
 				</li>
 				<li class="list-none">
-					<a href={'#expertise'} class="link">
-						<span class="nav-text text-sm text-gray-950 dark:text-white">Strength & Expertise</span>
+					<a href={'#skills'} class="link">
+						<span class="nav-text text-sm text-gray-950 dark:text-white"
+							>{$t('navbar.second_link')}</span
+						>
 					</a>
 				</li>
 				<li class="list-none">
 					<a href={'#experience'} class="link">
 						<span class="nav-text text-sm text-gray-950 dark:text-white"
-							>Professional Experience</span
+							>{$t('navbar.third_link')}</span
 						>
 					</a>
 				</li>
@@ -242,17 +246,7 @@
 	<!-- End of Mobile Version -->
 </nav>
 
-<style lang="postcss">
-	.underline-effect::after {
-		content: '';
-		display: block;
-		width: 0;
-		height: 2px;
-		background: #fff;
-		transition: width 0.3s;
-	}
-
-	.dark,
+<style>
 	.underline-effect::after {
 		content: '';
 		display: block;
