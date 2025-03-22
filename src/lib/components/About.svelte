@@ -7,7 +7,7 @@
 
 <section
 	id="about"
-	class="section w-screen min-h-screen max-w-full max-h-full border-b border-gray-200 dark:border-gray-800 bg-light dark:bg-gradient-to-b from-green-900 via-black via-40% to-dark font-grotesk transition-all duration-100 ease-in-out"
+	class="w-screen min-h-screen max-w-full max-h-full border-b border-gray-200 dark:border-gray-800 bg-light dark:bg-gradient-to-b from-green-900 via-black via-40% to-dark font-grotesk transition-all duration-100 ease-in-out"
 >
 	<div class="show-on-scroll container mx-auto">
 		<div

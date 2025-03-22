@@ -3,7 +3,7 @@
 </script>
 
 <header
-	class="section relative flex items-center justify-center w-screen min-h-screen max-w-full max-h-full overflow-hidden"
+	class="w-screen min-h-screen max-w-full max-h-full relative flex items-center justify-center overflow-hidden"
 >
 	<div class="container mx-auto">
 		<div class="flex justify-center items-center py-14 px-10 md:py-24 md:px-20">

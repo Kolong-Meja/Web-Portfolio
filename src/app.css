@@ -8,3 +8,7 @@
 	animation-duration: 3s;
 	animation-fill-mode: forwards;
 }
+
+.section {
+	@apply w-screen min-h-screen max-w-full max-h-full border-b border-gray-200 dark:border-gray-800 bg-light dark:bg-gradient-to-b from-[#050814] via-[#020308] to-[#000000] font-grotesk transition-all duration-100 ease-in-out;
+}

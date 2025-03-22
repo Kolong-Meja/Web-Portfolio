@@ -134,3 +134,41 @@ export function switchLanguageHandler(event: Event): void {
 	const currentTarget = event.currentTarget as HTMLSelectElement;
 	localStorage.lang = currentTarget.value;
 }
+
+export function slideHandler(): void {
+	const carousels = document.querySelectorAll('.carousel-item') as NodeListOf<HTMLElement>;
+
+	if (carousels.length > 0) {
+		carousels[0].classList.add('active');
+	}
+
+	const right = document.getElementById('moveRight');
+	const left = document.getElementById('moveLeft');
+	const total = carousels.length;
+	let current = 0;
+
+	if (right) {
+		right.addEventListener('click', function () {
+			const prev = current;
+			current = (current + 1) % total;
+			setSlide(prev, current);
+		});
+	}
+
+	if (left) {
+		left.addEventListener('click', function () {
+			const prev = current;
+			current = (current - 1 + total) % total;
+			setSlide(prev, current);
+		});
+	}
+
+	const setSlide = (prev: number, next: number): void => {
+		if (prev >= 0 && prev < total) {
+			carousels[prev].classList.remove('active');
+		}
+		if (next >= 0 && next < total) {
+			carousels[next].classList.add('active');
+		}
+	};
+}

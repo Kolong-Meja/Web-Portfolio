@@ -273,11 +273,11 @@ mySkills(skills);`;
 
 <section
 	id="skills"
-	class="section w-screen min-h-screen max-w-full max-h-full border-b border-gray-200 dark:border-gray-800 bg-light dark:bg-gradient-to-b from-dark via-[#070a18] to-[#050814] font-grotesk transition-all duration-100 ease-in-out"
+	class="w-screen min-h-screen max-w-full max-h-full border-b border-gray-200 dark:border-gray-800 bg-light dark:bg-gradient-to-b from-dark via-[#070a18] to-[#050814] font-grotesk transition-all duration-100 ease-in-out"
 >
 	<div class="show-on-scroll container mx-auto">
 		<div
-			class="flex flex-col space-y-8 lg:flex-row lg:space-x-4 items-center lg:items-start py-8 px-2 sm:py-12 sm:px-3 md:py-16 md:px-4 lg:py-24 lg:px-5 xl:py-28 xl:px-6"
+			class="flex flex-col space-y-8 lg:flex-row lg:space-x-8 items-center lg:items-start py-8 px-2 sm:py-12 sm:px-3 md:py-16 md:px-4 lg:py-24 lg:px-5 xl:py-28 xl:px-6"
 		>
 			<!-- Code Panel -->
 			<pre class="relative flex flex-col bg-gray-900 rounded-xl w-full lg:w-[50rem]">
