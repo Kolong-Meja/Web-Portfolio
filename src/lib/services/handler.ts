@@ -3,7 +3,7 @@ import { DarkBackground, LightBackground, LightSignature, DarkSignature } from '
 export function navbarScrollAnimation(
 	navbar: HTMLElement,
 	mobileMenu: HTMLElement,
-	axisY: number = 300
+	axisY: number = 100
 ): void {
 	window.addEventListener('scroll', () => {
 		const isHidden = mobileMenu.classList.contains('hidden');

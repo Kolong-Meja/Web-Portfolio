@@ -46,7 +46,7 @@
 					>
 						<a
 							id="file-link"
-							href="https://drive.google.com/file/d/1qQqfDh_M72bRTpJq-ebwea8UPsJQXMul/view?usp=sharing"
+							href="https://drive.google.com/file/d/16wMhNA8WEA15ku846XYKmXd-5i91h_eO/view?usp=sharing"
 							class="text-gray-950 dark:text-white">{$t('about.links.first_link')}</a
 						>
 					</p>
@@ -64,7 +64,7 @@
 					>
 						<a
 							id="file-link"
-							href="https://drive.google.com/file/d/1VBL-RTDf590NW-jO4fluYl-p3fcpHJB2/view?usp=sharing"
+							href="https://drive.google.com/file/d/1mHeO9252FSNfpSyVGZcg7AtZ55O1fhxq/view?usp=sharing"
 							class="text-gray-950 dark:text-white">{$t('about.links.third_link')}</a
 						>
 					</p>

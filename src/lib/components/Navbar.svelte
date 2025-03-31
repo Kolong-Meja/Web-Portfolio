@@ -97,7 +97,7 @@
 <nav
 	class="my-navbar hidden z-30 w-full font-grotesk bg-light dark:bg-gradient-to-br from-[#090c22] via-[#020308] to-[#000000] transition-all duration-100 ease-in-out"
 >
-	<div class="container mx-auto flex justify-between items-center px-2 md:px-0">
+	<div class="container mx-auto flex justify-between items-center py-0 px-2 md:px-0 md:py-2">
 		<div class="flex flex-row items-center gap-4">
 			<!-- Left Section -->
 

@@ -5,9 +5,7 @@
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
-	onMount(() => {
-		
-	});
+	onMount(() => {});
 </script>
 
 <section
